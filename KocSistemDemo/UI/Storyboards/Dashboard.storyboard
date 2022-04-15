@@ -15,10 +15,47 @@
                     <view key="view" contentMode="scaleToFill" id="gbK-bc-CHo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rj6-D1-ATc" customClass="TopProfileView" customModule="KocSistemDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="40" width="414" height="70"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="2jI-vY-aEp"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hRP-SG-8yV">
+                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uJi-hh-Bo2">
+                                    <size key="itemSize" width="150" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jO3-y9-6FX" id="kyS-xo-gzT"/>
+                                    <outlet property="delegate" destination="jO3-y9-6FX" id="YFb-qd-jeQ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="d0D-Kf-ml5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rj6-D1-ATc" firstAttribute="top" secondItem="gbK-bc-CHo" secondAttribute="top" constant="40" id="CPi-rF-RIa"/>
+                            <constraint firstItem="d0D-Kf-ml5" firstAttribute="bottom" secondItem="hRP-SG-8yV" secondAttribute="bottom" id="GMS-5e-s5k"/>
+                            <constraint firstItem="hRP-SG-8yV" firstAttribute="leading" secondItem="d0D-Kf-ml5" secondAttribute="leading" id="Ja4-lx-tby"/>
+                            <constraint firstItem="d0D-Kf-ml5" firstAttribute="trailing" secondItem="hRP-SG-8yV" secondAttribute="trailing" id="PyR-34-Cpa"/>
+                            <constraint firstItem="hRP-SG-8yV" firstAttribute="top" secondItem="Rj6-D1-ATc" secondAttribute="bottom" id="Q8S-4n-9qt"/>
+                            <constraint firstItem="Rj6-D1-ATc" firstAttribute="leading" secondItem="d0D-Kf-ml5" secondAttribute="leading" id="Yt6-4O-N9k"/>
+                            <constraint firstItem="Rj6-D1-ATc" firstAttribute="trailing" secondItem="d0D-Kf-ml5" secondAttribute="trailing" id="fhk-Re-ub2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" badgeValue="2" systemItem="featured" id="OZX-Tt-JNQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="hRP-SG-8yV" id="EHM-Le-dc6"/>
+                        <outlet property="topProfileView" destination="Rj6-D1-ATc" id="AX7-at-nab"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZV-uR-zOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,14 +68,54 @@
                     <view key="view" contentMode="scaleToFill" id="N09-cj-qUc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L95-dE-pzs" customClass="TopProfileView" customModule="KocSistemDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="40" width="414" height="70"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="VCb-9f-I1k"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-kd-sY3">
+                                <rect key="frame" x="0.0" y="141.5" width="414" height="671.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fJz-QQ-f6S" id="pJb-M5-Bhi"/>
+                                    <outlet property="delegate" destination="fJz-QQ-f6S" id="ENW-cV-rkE"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7k-C3-tNJ">
+                                <rect key="frame" x="24" y="115" width="366" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Iw9-WY-xvA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Ev-kd-sY3" firstAttribute="top" secondItem="e7k-C3-tNJ" secondAttribute="bottom" constant="5" id="2L9-FI-Gtk"/>
+                            <constraint firstItem="e7k-C3-tNJ" firstAttribute="leading" secondItem="Iw9-WY-xvA" secondAttribute="leading" constant="24" id="9Mk-Zf-5RI"/>
+                            <constraint firstItem="L95-dE-pzs" firstAttribute="leading" secondItem="Iw9-WY-xvA" secondAttribute="leading" id="A2i-44-bvJ"/>
+                            <constraint firstItem="0Ev-kd-sY3" firstAttribute="leading" secondItem="Iw9-WY-xvA" secondAttribute="leading" id="DbJ-6k-xXG"/>
+                            <constraint firstItem="Iw9-WY-xvA" firstAttribute="trailing" secondItem="e7k-C3-tNJ" secondAttribute="trailing" constant="24" id="LpA-Eg-Z2g"/>
+                            <constraint firstItem="L95-dE-pzs" firstAttribute="trailing" secondItem="Iw9-WY-xvA" secondAttribute="trailing" id="gAu-kc-6TC"/>
+                            <constraint firstItem="e7k-C3-tNJ" firstAttribute="top" secondItem="L95-dE-pzs" secondAttribute="bottom" constant="5" id="h7f-6S-twt"/>
+                            <constraint firstItem="L95-dE-pzs" firstAttribute="top" secondItem="N09-cj-qUc" secondAttribute="top" constant="40" id="llW-X2-iLE"/>
+                            <constraint firstItem="0Ev-kd-sY3" firstAttribute="bottom" secondItem="Iw9-WY-xvA" secondAttribute="bottom" id="oHV-6U-N1U"/>
+                            <constraint firstItem="0Ev-kd-sY3" firstAttribute="trailing" secondItem="Iw9-WY-xvA" secondAttribute="trailing" id="zC2-8f-8JL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" badgeValue="4" systemItem="recents" id="1Jb-4z-lVa"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="e7k-C3-tNJ" id="B5r-Bc-jaZ"/>
+                        <outlet property="tableView" destination="0Ev-kd-sY3" id="eO7-hg-4ar"/>
+                        <outlet property="topProfileView" destination="L95-dE-pzs" id="adq-Vm-N3S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8h-PD-gWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="528"/>
+            <point key="canvasLocation" x="8.6956521739130448" y="527.67857142857144"/>
         </scene>
         <!--Third Tab View Controller-->
         <scene sceneID="8Yi-dO-gmv">
@@ -47,14 +124,53 @@
                     <view key="view" contentMode="scaleToFill" id="vzn-Jv-tDw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68W-OW-QFz" customClass="TopProfileView" customModule="KocSistemDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="40" width="414" height="70"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5M8-jD-vvd"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="80z-GV-rYc">
+                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2nq-vQ-vUd">
+                                    <size key="itemSize" width="150" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ulK-Iy-wVc" id="v2H-l7-j6z"/>
+                                    <outlet property="delegate" destination="ulK-Iy-wVc" id="TtI-dn-1Ey"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6z7-Oi-4He"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="68W-OW-QFz" firstAttribute="top" secondItem="vzn-Jv-tDw" secondAttribute="top" constant="40" id="2K1-Ey-8sk"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="trailing" secondItem="6z7-Oi-4He" secondAttribute="trailing" id="3EJ-70-Adp"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="top" secondItem="68W-OW-QFz" secondAttribute="bottom" id="5g6-dQ-e3x"/>
+                            <constraint firstItem="68W-OW-QFz" firstAttribute="trailing" secondItem="6z7-Oi-4He" secondAttribute="trailing" id="PoB-vn-Ahd"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="top" secondItem="68W-OW-QFz" secondAttribute="bottom" id="QDT-On-2Yq"/>
+                            <constraint firstItem="68W-OW-QFz" firstAttribute="leading" secondItem="6z7-Oi-4He" secondAttribute="leading" id="RgN-xp-Np8"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="bottom" secondItem="6z7-Oi-4He" secondAttribute="bottom" id="gSr-d1-8Mj"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="leading" secondItem="6z7-Oi-4He" secondAttribute="leading" id="hek-RT-LtY"/>
+                            <constraint firstItem="80z-GV-rYc" firstAttribute="top" secondItem="68W-OW-QFz" secondAttribute="bottom" id="phb-j9-rcH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" badgeValue="3" systemItem="topRated" id="0f9-Y3-NcD"/>
+                    <connections>
+                        <outlet property="collectionView" destination="80z-GV-rYc" id="e0g-W6-p5V"/>
+                        <outlet property="topProfileView" destination="68W-OW-QFz" id="gkz-KW-FhR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMD-YR-bN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272" y="528"/>
+            <point key="canvasLocation" x="-730" y="518"/>
         </scene>
         <!--First Tab View Controller-->
         <scene sceneID="xjN-6b-Pwj">
@@ -65,19 +181,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-3k-FOv" customClass="TopProfileView" customModule="KocSistemDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="25" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="70"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="3DD-Yf-Cbv"/>
+                                    <constraint firstAttribute="height" constant="70" id="3DD-Yf-Cbv"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-7Q-Hy9">
+                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yut-2G-U5P" id="iJd-U4-y9Y"/>
+                                    <outlet property="delegate" destination="Yut-2G-U5P" id="nLU-A8-3BW"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="625-sZ-4z2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yDO-3k-FOv" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" id="5sS-ob-9Iq"/>
+                            <constraint firstItem="ne9-7Q-Hy9" firstAttribute="top" secondItem="yDO-3k-FOv" secondAttribute="bottom" id="XQN-ux-liu"/>
                             <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="yDO-3k-FOv" secondAttribute="trailing" id="eu4-fe-VEk"/>
-                            <constraint firstItem="yDO-3k-FOv" firstAttribute="top" secondItem="hGf-dj-B9z" secondAttribute="top" constant="25" id="tfH-7X-Dhc"/>
+                            <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="ne9-7Q-Hy9" secondAttribute="trailing" id="ifm-rW-Dh2"/>
+                            <constraint firstItem="625-sZ-4z2" firstAttribute="bottom" secondItem="ne9-7Q-Hy9" secondAttribute="bottom" id="oG1-Su-qvh"/>
+                            <constraint firstItem="ne9-7Q-Hy9" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" id="tZc-gB-xHC"/>
+                            <constraint firstItem="yDO-3k-FOv" firstAttribute="top" secondItem="hGf-dj-B9z" secondAttribute="top" constant="40" id="tfH-7X-Dhc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" badgeValue="1" springLoaded="YES" systemItem="favorites" id="DeY-0S-V9t">
@@ -86,6 +214,7 @@
                     <navigationItem key="navigationItem" id="FBm-gT-SB9"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="tableView" destination="ne9-7Q-Hy9" id="6lS-b7-Ld8"/>
                         <outlet property="topProfileView" destination="yDO-3k-FOv" id="dyy-3A-aIO"/>
                     </connections>
                 </viewController>

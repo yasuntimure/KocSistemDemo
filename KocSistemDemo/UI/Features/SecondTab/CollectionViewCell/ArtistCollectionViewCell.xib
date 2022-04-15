@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtistCollectionViewCell" id="gTV-IL-0wX" customClass="ArtistCollectionViewCell" customModule="KocSistemDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="132"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5Cc-cv-seb">
+                        <rect key="frame" x="10" y="10" width="125" height="82"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azP-50-Xwq">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49e-xj-pjp">
+                                <rect key="frame" x="0.0" y="41" width="125" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="49e-xj-pjp" secondAttribute="bottom" id="57z-Tm-Kun"/>
+                            <constraint firstItem="azP-50-Xwq" firstAttribute="leading" secondItem="5Cc-cv-seb" secondAttribute="leading" id="BLT-YY-KeR"/>
+                            <constraint firstItem="azP-50-Xwq" firstAttribute="top" secondItem="5Cc-cv-seb" secondAttribute="top" id="Rt7-xl-RQa"/>
+                            <constraint firstAttribute="trailing" secondItem="49e-xj-pjp" secondAttribute="trailing" id="Zbf-ax-anZ"/>
+                            <constraint firstItem="49e-xj-pjp" firstAttribute="leading" secondItem="5Cc-cv-seb" secondAttribute="leading" id="rND-om-FeI"/>
+                            <constraint firstAttribute="trailing" secondItem="azP-50-Xwq" secondAttribute="trailing" id="sJg-SC-maI"/>
+                        </constraints>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbc-3p-WIk" customClass="PrimaryButton" customModule="KocSistemDemo" customModuleProvider="target">
+                        <rect key="frame" x="55" y="97" width="80" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="CgF-wI-96U"/>
+                            <constraint firstAttribute="height" constant="25" id="zwd-T0-VhH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="more..."/>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="5Cc-cv-seb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="0Xw-6e-Wzx"/>
+                <constraint firstAttribute="bottom" secondItem="xbc-3p-WIk" secondAttribute="bottom" constant="10" id="Hp9-7a-RgD"/>
+                <constraint firstItem="5Cc-cv-seb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="KLJ-sx-zdj"/>
+                <constraint firstAttribute="trailing" secondItem="xbc-3p-WIk" secondAttribute="trailing" constant="10" id="N3f-Ci-WfT"/>
+                <constraint firstItem="xbc-3p-WIk" firstAttribute="top" secondItem="5Cc-cv-seb" secondAttribute="bottom" constant="5" id="eg0-LI-Hl0"/>
+                <constraint firstAttribute="trailing" secondItem="5Cc-cv-seb" secondAttribute="trailing" constant="10" id="esh-pd-NDr"/>
+            </constraints>
+            <size key="customSize" width="145" height="132"/>
+            <connections>
+                <outlet property="examineButton" destination="xbc-3p-WIk" id="i9R-em-no9"/>
+                <outlet property="infoLabel" destination="49e-xj-pjp" id="V7O-NE-K75"/>
+                <outlet property="titleLabel" destination="azP-50-Xwq" id="CtS-vJ-5D5"/>
+            </connections>
+            <point key="canvasLocation" x="221.01449275362322" y="171.42857142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>

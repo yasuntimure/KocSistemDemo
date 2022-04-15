@@ -78,9 +78,9 @@ enum Theme: Int {
     var primaryButtonColor: UIColor {
         switch self {
         case .dark:
-            return UIColor.AppColor.ycDarkPinkE51B5E ?? .systemPink
+            return UIColor.systemBlue.lighter() ?? .blue
         case .light:
-            return UIColor.AppColor.ycPink ?? .systemPink
+            return UIColor.systemBlue.darker() ?? .blue
         }
     }
 

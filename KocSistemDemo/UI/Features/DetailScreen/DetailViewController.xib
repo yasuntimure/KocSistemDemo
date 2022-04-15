@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="KocSistemDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="artistImage" destination="Gca-CF-haP" id="OdE-oa-4b3"/>
+                <outlet property="artistNameLabel" destination="1PH-LS-Amt" id="Q4E-vt-BCA"/>
+                <outlet property="info1Label" destination="s0s-aL-OZV" id="Sh3-yW-asz"/>
+                <outlet property="info2Label" destination="k4i-7A-LCn" id="sq6-N9-uWL"/>
+                <outlet property="info3Label" destination="b3N-j8-05t" id="znw-cC-aD8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Gca-CF-haP">
+                    <rect key="frame" x="107" y="74" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="B5p-su-HLn"/>
+                        <constraint firstAttribute="height" constant="200" id="CIv-JD-Bo9"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-5L-7er">
+                    <rect key="frame" x="24" y="298" width="366" height="126"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PH-LS-Amt" customClass="PrimaryTitleLabel" customModule="KocSistemDemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-aL-OZV">
+                            <rect key="frame" x="0.0" y="34" width="366" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4i-7A-LCn">
+                            <rect key="frame" x="0.0" y="68" width="366" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3N-j8-05t">
+                            <rect key="frame" x="0.0" y="102" width="366" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="1PH-LS-Amt" secondAttribute="trailing" id="5I8-SN-mb3"/>
+                        <constraint firstAttribute="trailing" secondItem="s0s-aL-OZV" secondAttribute="trailing" id="KWu-iE-Vny"/>
+                        <constraint firstItem="1PH-LS-Amt" firstAttribute="leading" secondItem="4Yz-5L-7er" secondAttribute="leading" id="Sy0-Gz-Cys"/>
+                        <constraint firstAttribute="trailing" secondItem="k4i-7A-LCn" secondAttribute="trailing" id="TVb-Eg-Wj4"/>
+                        <constraint firstItem="b3N-j8-05t" firstAttribute="leading" secondItem="4Yz-5L-7er" secondAttribute="leading" id="aG9-c0-VFe"/>
+                        <constraint firstAttribute="trailing" secondItem="b3N-j8-05t" secondAttribute="trailing" id="lhe-Zd-1Sl"/>
+                        <constraint firstItem="k4i-7A-LCn" firstAttribute="leading" secondItem="4Yz-5L-7er" secondAttribute="leading" id="nED-Cd-hIX"/>
+                        <constraint firstItem="s0s-aL-OZV" firstAttribute="leading" secondItem="4Yz-5L-7er" secondAttribute="leading" id="pD9-8Y-FrP"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Gca-CF-haP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4fy-Lu-h6Y"/>
+                <constraint firstItem="4Yz-5L-7er" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="fEx-Dl-JHS"/>
+                <constraint firstItem="Gca-CF-haP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="k9h-9p-Ndk"/>
+                <constraint firstItem="4Yz-5L-7er" firstAttribute="top" secondItem="Gca-CF-haP" secondAttribute="bottom" constant="24" id="maD-rd-CaG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Yz-5L-7er" secondAttribute="trailing" constant="24" id="qpr-9b-Ovx"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="profileIcon" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

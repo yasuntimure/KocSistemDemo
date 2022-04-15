@@ -32,11 +32,6 @@ extension AppDelegate {
         self.window?.makeKeyAndVisible()
     }
 
-    func configMKProgress() {
-        MKProgress.config.hudColor = .clear
-        MKProgress.config.circleBorderColor = .white
-        MKProgress.config.preferredStatusBarStyle = .lightContent
-    }
 }
 
 // MARK: Flow

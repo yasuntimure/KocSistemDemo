@@ -149,23 +149,3 @@ extension UIViewController {
     }
 }
 
-
-// MARK: Progress View
-extension UIViewController {
-
-    func showProgressView(showLoader: Bool) {
-        if showLoader {
-            self.showProgressView()
-        } else {
-            self.hideProgressView()
-        }
-    }
-
-    func showProgressView(after: TimeInterval = 0.05) {
-        MKProgress.show(after: after, animated: true)
-    }
-
-    func hideProgressView() {
-        MKProgress.hide()
-    }
-}

@@ -7,17 +7,18 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 //// MARK: - Kingfiher
-//extension UIImageView {
-//
-//    func setKfImage(for urlString: String ) {
-//        let url = URL(string: urlString)
-//        self.kf.indicatorType = .activity
-//        self.kf.setImage(with: url,options: KingfisherManager.shared.defaultOptions)
-//    }
-//
-//}
+extension UIImageView {
+
+    func setKfImage(for urlString: String ) {
+        let url = URL(string: urlString)
+        self.kf.indicatorType = .activity
+        self.kf.setImage(with: url,options: KingfisherManager.shared.defaultOptions)
+    }
+
+}
 
 // MARK: - Rounded Image
 extension UIImageView {
