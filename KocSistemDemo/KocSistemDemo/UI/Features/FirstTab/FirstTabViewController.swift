@@ -9,10 +9,17 @@ import UIKit
 
 class FirstTabViewController: BaseViewController {
 
+    @IBOutlet weak var topProfileView: TopProfileView!
+
     let viewModel = FirstTabViewModelFactory().makeViewModel()
 
+    var isLoading: Bool = false { didSet { showProgressView(showLoader: isLoading) } }
+    var errorMessage: String = "" { didSet { showAlert(message: errorMessage) } }
+    var data: SearchResponseModel = [] //{ didSet { // } }
+
     override func initialComponents() {
-        self.viewModel.delegate = self
+        self.viewModel.owned = self
+        topProfileView.titleLabel.text = "Demo Project"
     }
 
     override func registerEvents() {
@@ -22,17 +29,4 @@ class FirstTabViewController: BaseViewController {
 
 }
 
-extension FirstTabViewController: FirstTabViewModelDelegate {
-    func showLoadingIndicator(isShow: Bool) {
-        self.showProgressView(showLoader: isShow)
-    }
 
-    func didSuccessLogin() {
-        //
-    }
-
-    func didFailureLogin(errorMessage: String) {
-        self.showAlert(message: errorMessage)
-    }
-
-}

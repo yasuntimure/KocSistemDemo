@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZV-uR-zOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1818.840579710145" y="-648.21428571428567"/>
+            <point key="canvasLocation" x="-1528" y="528"/>
         </scene>
         <!--Forth Tab View Controller-->
         <scene sceneID="01t-ak-qCi">
@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8h-PD-gWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="458"/>
+            <point key="canvasLocation" x="-641" y="528"/>
         </scene>
         <!--Third Tab View Controller-->
         <scene sceneID="8Yi-dO-gmv">
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMD-YR-bN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1818.840579710145" y="109.82142857142857"/>
+            <point key="canvasLocation" x="272" y="528"/>
         </scene>
         <!--First Tab View Controller-->
         <scene sceneID="xjN-6b-Pwj">
@@ -63,18 +63,35 @@
                     <view key="view" contentMode="scaleToFill" id="hGf-dj-B9z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yDO-3k-FOv" customClass="TopProfileView" customModule="KocSistemDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="25" width="414" height="130"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="3DD-Yf-Cbv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="625-sZ-4z2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yDO-3k-FOv" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" id="5sS-ob-9Iq"/>
+                            <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="yDO-3k-FOv" secondAttribute="trailing" id="eu4-fe-VEk"/>
+                            <constraint firstItem="yDO-3k-FOv" firstAttribute="top" secondItem="hGf-dj-B9z" secondAttribute="top" constant="25" id="tfH-7X-Dhc"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" badgeValue="1" springLoaded="YES" systemItem="favorites" id="DeY-0S-V9t">
                         <color key="badgeColor" systemColor="systemRedColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="FBm-gT-SB9"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="topProfileView" destination="yDO-3k-FOv" id="dyy-3A-aIO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFX-VM-A7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356.52173913043481" y="-1195.3125"/>
+            <point key="canvasLocation" x="-2401" y="528"/>
         </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="pGf-oe-lQO">

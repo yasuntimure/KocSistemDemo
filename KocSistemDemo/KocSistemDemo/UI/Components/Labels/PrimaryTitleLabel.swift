@@ -10,7 +10,7 @@ import UIKit
 class PrimaryTitleLabel: UILabel {
     var fontSize: CGFloat? {
         didSet {
-            self.font = FontBook.Poppins.semibold.of(size: fontSize ?? 18.0)
+            self.font = UIFont.boldSystemFont(ofSize: fontSize ?? 22)
         }
     }
 
@@ -25,7 +25,7 @@ class PrimaryTitleLabel: UILabel {
     }
 
     private func initUI() {
-        self.font = FontBook.Poppins.semibold.of(size: 18.0)
+        self.font = UIFont.boldSystemFont(ofSize: 22)
         self.textColor = ThemeManager.currentTheme().primaryTextColor
     }
 }

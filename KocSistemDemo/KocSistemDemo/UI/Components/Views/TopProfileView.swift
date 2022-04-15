@@ -15,10 +15,11 @@ class TopProfileView: BaseReusableView, CustomViewProtocol {
 
     override func initialize() {
         self.commonInit(for: nibName())
-        setupUI()
+        initUI()
     }
 
-    private func setupUI() {
-
+    private func initUI() {
+        contentView.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        profileImage.makeRounded()
     }
 }
