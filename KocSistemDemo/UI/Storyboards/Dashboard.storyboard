@@ -206,22 +206,31 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-7Q-Hy9">
-                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="141.5" width="414" height="671.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Yut-2G-U5P" id="iJd-U4-y9Y"/>
                                     <outlet property="delegate" destination="Yut-2G-U5P" id="nLU-A8-3BW"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7O-Ni-25k">
+                                <rect key="frame" x="30" y="115" width="354" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="625-sZ-4z2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="P7O-Ni-25k" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" constant="30" id="15p-Yg-UxW"/>
+                            <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="P7O-Ni-25k" secondAttribute="trailing" constant="30" id="4kz-rH-8ra"/>
                             <constraint firstItem="yDO-3k-FOv" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" id="5sS-ob-9Iq"/>
-                            <constraint firstItem="ne9-7Q-Hy9" firstAttribute="top" secondItem="yDO-3k-FOv" secondAttribute="bottom" id="XQN-ux-liu"/>
+                            <constraint firstItem="P7O-Ni-25k" firstAttribute="top" secondItem="yDO-3k-FOv" secondAttribute="bottom" constant="5" id="8ve-RH-XCv"/>
                             <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="yDO-3k-FOv" secondAttribute="trailing" id="eu4-fe-VEk"/>
                             <constraint firstItem="625-sZ-4z2" firstAttribute="trailing" secondItem="ne9-7Q-Hy9" secondAttribute="trailing" id="ifm-rW-Dh2"/>
                             <constraint firstItem="625-sZ-4z2" firstAttribute="bottom" secondItem="ne9-7Q-Hy9" secondAttribute="bottom" id="oG1-Su-qvh"/>
+                            <constraint firstItem="ne9-7Q-Hy9" firstAttribute="top" secondItem="P7O-Ni-25k" secondAttribute="bottom" constant="5" id="qhB-gD-jjE"/>
                             <constraint firstItem="ne9-7Q-Hy9" firstAttribute="leading" secondItem="625-sZ-4z2" secondAttribute="leading" id="tZc-gB-xHC"/>
                             <constraint firstItem="yDO-3k-FOv" firstAttribute="top" secondItem="hGf-dj-B9z" secondAttribute="top" constant="40" id="tfH-7X-Dhc"/>
                         </constraints>
@@ -232,6 +241,7 @@
                     <navigationItem key="navigationItem" id="FBm-gT-SB9"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="infoLabel" destination="P7O-Ni-25k" id="y2I-iS-Eue"/>
                         <outlet property="tableView" destination="ne9-7Q-Hy9" id="6lS-b7-Ld8"/>
                         <outlet property="topProfileView" destination="yDO-3k-FOv" id="dyy-3A-aIO"/>
                     </connections>

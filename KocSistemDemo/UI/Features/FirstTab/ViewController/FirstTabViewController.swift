@@ -12,6 +12,7 @@ import RxRelay
 class FirstTabViewController: BaseViewController {
 
     @IBOutlet weak var topProfileView: TopProfileView!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
     let subject = Subject.shared
@@ -23,6 +24,7 @@ class FirstTabViewController: BaseViewController {
 
     var searchResponse: SearchResponseModel = [] {
         didSet {
+            updateInfoLabel()
             tableView.reloadData()
         }
     }
@@ -55,6 +57,7 @@ class FirstTabViewController: BaseViewController {
     private func updateSearchResponse(with trackID: Int) {
         guard let index = searchResponse.firstIndex(where: {$0.trackID == trackID}) else {return}
         searchResponse.remove(at: index)
+        updateInfoLabel()
         tableView.reloadData()
     }
 
@@ -66,6 +69,8 @@ class FirstTabViewController: BaseViewController {
         topProfileView.titleLabel.text = "Demo Tab 1"
     }
 
-
+    private func updateInfoLabel() {
+        infoLabel.text = "\(searchResponse.count) results found. "
+    }
 
 }
