@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class ArtistTableViewCell: UITableViewCell, Reuseable {
 
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var trackLabel: UILabel!
     @IBOutlet weak var examineButton: PrimaryButton!
+    @IBOutlet weak var deleteButton: PrimaryButton!
 
     var data: Result? { didSet { updateUI() } }
 

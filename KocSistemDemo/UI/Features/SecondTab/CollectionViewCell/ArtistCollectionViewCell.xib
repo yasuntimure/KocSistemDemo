@@ -51,20 +51,32 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="more..."/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-9U-zCN">
+                        <rect key="frame" x="122" y="3" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="S77-lE-AGJ"/>
+                            <constraint firstAttribute="height" constant="20" id="X0U-JK-DWA"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="crossIcon"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="5Cc-cv-seb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="0Xw-6e-Wzx"/>
+                <constraint firstItem="ejb-9U-zCN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="AHg-0O-V43"/>
                 <constraint firstAttribute="bottom" secondItem="xbc-3p-WIk" secondAttribute="bottom" constant="10" id="Hp9-7a-RgD"/>
                 <constraint firstItem="5Cc-cv-seb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="KLJ-sx-zdj"/>
                 <constraint firstAttribute="trailing" secondItem="xbc-3p-WIk" secondAttribute="trailing" constant="10" id="N3f-Ci-WfT"/>
                 <constraint firstItem="xbc-3p-WIk" firstAttribute="top" secondItem="5Cc-cv-seb" secondAttribute="bottom" constant="5" id="eg0-LI-Hl0"/>
                 <constraint firstAttribute="trailing" secondItem="5Cc-cv-seb" secondAttribute="trailing" constant="10" id="esh-pd-NDr"/>
+                <constraint firstAttribute="trailing" secondItem="ejb-9U-zCN" secondAttribute="trailing" constant="3" id="kGo-dq-cAt"/>
             </constraints>
             <size key="customSize" width="145" height="132"/>
             <connections>
+                <outlet property="deleteButton" destination="ejb-9U-zCN" id="i6Y-BB-JMr"/>
                 <outlet property="examineButton" destination="xbc-3p-WIk" id="i9R-em-no9"/>
                 <outlet property="infoLabel" destination="49e-xj-pjp" id="V7O-NE-K75"/>
                 <outlet property="titleLabel" destination="azP-50-Xwq" id="CtS-vJ-5D5"/>
@@ -72,4 +84,7 @@
             <point key="canvasLocation" x="221.01449275362322" y="171.42857142857142"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="crossIcon" width="20" height="20"/>
+    </resources>
 </document>

@@ -18,8 +18,10 @@ extension ThirdTabViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         let data = searchResponse[indexPath.row]
         cell.data = data
-        cell.deleteButton.onTap { _ in
-            self.deleteItemFromAllResponses(index: indexPath.row)
+        cell.deleteButton.onTap { [unowned self] _ in
+            if let trackID = data.trackID {
+                self.subject.removedItemTrackID.accept(trackID)
+            }
         }
         return cell
     }

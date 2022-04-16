@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 extension FirstTabViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -17,11 +18,16 @@ extension FirstTabViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistTableViewCell.reuseIdentifier, for: indexPath) as? ArtistTableViewCell else { return UITableViewCell() }
         let data = searchResponse[indexPath.row]
         cell.data = data
-
-        cell.examineButton.onTap { _ in
+        cell.deleteButton.onTap { [unowned self] _ in
+            if let trackID = data.trackID {
+                self.subject.removedItemTrackID.accept(trackID)
+            }
+        }
+        cell.examineButton.onTap { [unowned self] _ in
             self.pushViewController(DetailViewController(data: data))
         }
         return cell
     }
 
 }
+

@@ -14,6 +14,7 @@ final class ArtistCollectionViewCell: UICollectionViewCell, Reuseable {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var examineButton: PrimaryButton!
 
     override func awakeFromNib() {

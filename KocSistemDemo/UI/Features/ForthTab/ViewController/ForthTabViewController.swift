@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 class ForthTabViewController: BaseViewController {
 
@@ -13,26 +15,51 @@ class ForthTabViewController: BaseViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
+    let subject = Subject.shared
+    private let disposeBag = DisposeBag()
+
     let viewModel = ForthTabViewModelFactory().makeViewModel()
 
     var errorMessage: String = "" { didSet { showAlert(message: errorMessage) } }
 
     var searchResponse: SearchResponseModel = [] {
         didSet {
-            tableView.reloadData()
             updateInfoLabel()
+            tableView.reloadData()
         }
     }
 
     override func initialComponents() {
         self.viewModel.owned = self
+        self.viewModel.fetchData()
+        subscribeSubject()
         tableView.registerCell(type: ArtistTableViewCell.self)
         initUI()
-        addDeleteObserver()
+   
     }
 
-    override func registerEvents() {
-        self.viewModel.fetchData()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeSubject()
+    }
+
+    private func subscribeSubject() {
+        subject
+            .removedItemTrackID
+            .asObservable()
+            .subscribe({ [unowned self] trackID  in
+                if let trackID = trackID.element {
+                    self.updateSearchResponse(with: trackID)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func updateSearchResponse(with trackID: Int) {
+        guard let index = searchResponse.firstIndex(where: {$0.trackID == trackID}) else {return}
+        searchResponse.remove(at: index)
+        updateInfoLabel()
+        tableView.reloadData()
     }
 
     private func initUI() {
@@ -47,21 +74,6 @@ class ForthTabViewController: BaseViewController {
         infoLabel.text = "\(searchResponse.count) results found. "
     }
 
+
+
 }
-
-extension ForthTabViewController {
-    func addDeleteObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier4.rawValue), object: nil)
-    }
-
-     // handle notification
-     @objc func observerCalled(_ notification: NSNotification) {
-         if let dict = notification.userInfo as NSDictionary? {
-             if let index = dict["index"] as? Int {
-                 self.searchResponse.remove(at: index)
-             }
-         }
-         self.tableView.reloadData()
-     }
-}
-

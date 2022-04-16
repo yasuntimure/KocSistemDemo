@@ -6,27 +6,59 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 class SecondTabViewController: BaseViewController {
 
     @IBOutlet weak var topProfileView: TopProfileView!
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    let subject = Subject.shared
+    private let disposeBag = DisposeBag()
 
     let viewModel = SecondTabViewModelFactory().makeViewModel()
 
     var errorMessage: String = "" { didSet { showAlert(message: errorMessage) } }
 
-    var searchResponse: SearchResponseModel = [] { didSet { collectionView.reloadData() } }
+    var searchResponse: SearchResponseModel = [] {
+        didSet {
+            updateInfoLabel()
+            collectionView.reloadData()
+        }
+    }
 
     override func initialComponents() {
         self.viewModel.owned = self
+        self.viewModel.fetchData()
+        subscribeSubject()
         collectionView.registerCell(type: ArtistCollectionViewCell.self)
         initUI()
-        addDeleteObserver()
     }
 
-    override func registerEvents() {
-        self.viewModel.fetchData()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeSubject()
+    }
+
+    private func subscribeSubject() {
+        subject
+            .removedItemTrackID
+            .asObservable()
+            .subscribe({ [unowned self] trackID  in
+                if let trackID = trackID.element {
+                    self.updateSearchResponse(with: trackID)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func updateSearchResponse(with trackID: Int) {
+        guard let index = searchResponse.firstIndex(where: {$0.trackID == trackID}) else {return}
+        searchResponse.remove(at: index)
+        updateInfoLabel()
+        collectionView.reloadData()
     }
 
     private func initUI() {
@@ -36,22 +68,10 @@ class SecondTabViewController: BaseViewController {
         topProfileView.backgroundColor = backgroundColor
         topProfileView.titleLabel.text = "Demo Tab 2"
     }
-}
 
-extension SecondTabViewController {
-    func addDeleteObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier2.rawValue), object: nil)
+    private func updateInfoLabel() {
+        infoLabel.text = "\(searchResponse.count) results found. "
     }
 
-
-     // handle notification
-     @objc func observerCalled(_ notification: NSNotification) {
-         if let dict = notification.userInfo as NSDictionary? {
-             if let index = dict["index"] as? Int {
-                 self.searchResponse.remove(at: index)
-             }
-         }
-         self.collectionView.reloadData()
-     }
 }
 

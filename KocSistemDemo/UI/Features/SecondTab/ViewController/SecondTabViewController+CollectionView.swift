@@ -18,8 +18,13 @@ extension SecondTabViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         let data = searchResponse[indexPath.row]
         cell.data = data
-        cell.examineButton.onTap { [weak self] _ in
-            self?.pushViewController(DetailViewController(data: data))
+        cell.deleteButton.onTap { [unowned self] _ in
+            if let trackID = data.trackID {
+                self.subject.removedItemTrackID.accept(trackID)
+            }
+        }
+        cell.examineButton.onTap { [unowned self] _ in
+            self.pushViewController(DetailViewController(data: data))
         }
         return cell
     }

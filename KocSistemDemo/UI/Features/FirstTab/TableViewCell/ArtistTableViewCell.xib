@@ -17,45 +17,58 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yl7-bf-nm8">
-                        <rect key="frame" x="24" y="31" width="333" height="123"/>
+                        <rect key="frame" x="24" y="31" width="332" height="123"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-MJ-89Q">
-                                <rect key="frame" x="0.0" y="0.0" width="46" height="59.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="59"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSN-Lf-iYv">
-                                <rect key="frame" x="0.0" y="64.5" width="36" height="58.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="64" width="31.5" height="59"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9s8-1k-xRS" customClass="PrimaryButton" customModule="KocSistemDemo" customModuleProvider="target">
-                        <rect key="frame" x="377" y="67.5" width="100" height="50"/>
+                        <rect key="frame" x="376" y="77.5" width="60" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="J3M-VD-wos"/>
-                            <constraint firstAttribute="height" constant="50" id="TKv-cl-95W"/>
+                            <constraint firstAttribute="width" constant="60" id="J3M-VD-wos"/>
+                            <constraint firstAttribute="height" constant="30" id="TKv-cl-95W"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="more..."/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuJ-CP-NfU" customClass="PrimaryButton" customModule="KocSistemDemo" customModuleProvider="target">
+                        <rect key="frame" x="446" y="77.5" width="50" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="6xf-Ti-C6D"/>
+                            <constraint firstAttribute="height" constant="30" id="jVb-sj-6Tb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="delete"/>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9s8-1k-xRS" firstAttribute="centerY" secondItem="yl7-bf-nm8" secondAttribute="centerY" id="9KF-8j-SoQ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="yl7-bf-nm8" secondAttribute="bottom" constant="20" id="DJw-2L-VLS"/>
                     <constraint firstItem="yl7-bf-nm8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="MdT-8l-Ldx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NuJ-CP-NfU" secondAttribute="trailing" constant="5" id="Pnf-jD-qBB"/>
+                    <constraint firstItem="NuJ-CP-NfU" firstAttribute="leading" secondItem="9s8-1k-xRS" secondAttribute="trailing" constant="10" id="d1t-8V-Mgm"/>
                     <constraint firstItem="9s8-1k-xRS" firstAttribute="leading" secondItem="yl7-bf-nm8" secondAttribute="trailing" constant="20" id="k2N-0o-yMl"/>
                     <constraint firstItem="yl7-bf-nm8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="pFS-Or-Uu0"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="9s8-1k-xRS" secondAttribute="trailing" constant="24" id="tkf-VB-W6i"/>
+                    <constraint firstItem="NuJ-CP-NfU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="x4K-Uw-sjv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="artistLabel" destination="ieU-MJ-89Q" id="cpg-nm-x0b"/>
+                <outlet property="deleteButton" destination="NuJ-CP-NfU" id="cSK-4l-AaZ"/>
                 <outlet property="examineButton" destination="9s8-1k-xRS" id="SeI-x7-p6j"/>
                 <outlet property="trackLabel" destination="sSN-Lf-iYv" id="snO-Le-hUm"/>
             </connections>
