@@ -37,9 +37,12 @@ class FirstTabViewController: BaseViewController {
         initUI()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        subscribeSubject()
+    private func initUI() {
+        let backgroundColor = ThemeManager.currentTheme().backgroundColor
+        view.backgroundColor = backgroundColor
+        tableView.backgroundColor = backgroundColor
+        topProfileView.backgroundColor = backgroundColor
+        topProfileView.titleLabel.text = "Demo Tab 1"
     }
 
     private func subscribeSubject() {
@@ -59,14 +62,6 @@ class FirstTabViewController: BaseViewController {
         searchResponse.remove(at: index)
         updateInfoLabel()
         tableView.reloadData()
-    }
-
-    private func initUI() {
-        let backgroundColor = ThemeManager.currentTheme().backgroundColor
-        view.backgroundColor = backgroundColor
-        tableView.backgroundColor = backgroundColor
-        topProfileView.backgroundColor = backgroundColor
-        topProfileView.titleLabel.text = "Demo Tab 1"
     }
 
     private func updateInfoLabel() {

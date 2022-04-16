@@ -38,9 +38,12 @@ class ForthTabViewController: BaseViewController {
    
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        subscribeSubject()
+    private func initUI() {
+        let backgroundColor = ThemeManager.currentTheme().backgroundColor
+        view.backgroundColor = backgroundColor
+        tableView.backgroundColor = backgroundColor
+        topProfileView.backgroundColor = backgroundColor
+        topProfileView.titleLabel.text = "Demo Tab 4"
     }
 
     private func subscribeSubject() {
@@ -62,18 +65,8 @@ class ForthTabViewController: BaseViewController {
         tableView.reloadData()
     }
 
-    private func initUI() {
-        let backgroundColor = ThemeManager.currentTheme().backgroundColor
-        view.backgroundColor = backgroundColor
-        tableView.backgroundColor = backgroundColor
-        topProfileView.backgroundColor = backgroundColor
-        topProfileView.titleLabel.text = "Demo Tab 4"
-    }
-
     private func updateInfoLabel() {
         infoLabel.text = "\(searchResponse.count) results found. "
     }
-
-
 
 }
