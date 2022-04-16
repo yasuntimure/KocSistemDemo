@@ -28,6 +28,7 @@ class ForthTabViewController: BaseViewController {
         self.viewModel.owned = self
         tableView.registerCell(type: ArtistTableViewCell.self)
         initUI()
+        addDeleteObserver()
     }
 
     override func registerEvents() {
@@ -48,4 +49,19 @@ class ForthTabViewController: BaseViewController {
 
 }
 
+extension ForthTabViewController {
+    func addDeleteObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier4.rawValue), object: nil)
+    }
+
+     // handle notification
+     @objc func observerCalled(_ notification: NSNotification) {
+         if let dict = notification.userInfo as NSDictionary? {
+             if let index = dict["index"] as? Int {
+                 self.searchResponse.remove(at: index)
+             }
+         }
+         self.tableView.reloadData()
+     }
+}
 

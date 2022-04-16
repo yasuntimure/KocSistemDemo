@@ -16,12 +16,18 @@ class FirstTabViewController: BaseViewController {
 
     var errorMessage: String = "" { didSet { showAlert(message: errorMessage) } }
 
-    var searchResponse: SearchResponseModel = [] { didSet { tableView.reloadData() } }
+    var searchResponse: SearchResponseModel = [] {
+        didSet {
+            self.updatedSearchResponse = searchResponse
+            tableView.reloadData()
+        }
+    }
 
     override func initialComponents() {
         self.viewModel.owned = self
         tableView.registerCell(type: ArtistTableViewCell.self)
         initUI()
+        addDeleteObserver()
     }
 
     override func registerEvents() {
@@ -37,5 +43,24 @@ class FirstTabViewController: BaseViewController {
     }
 
 }
+
+extension FirstTabViewController {
+    func addDeleteObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier1.rawValue), object: nil)
+    }
+
+
+     // handle notification
+     @objc func observerCalled(_ notification: NSNotification) {
+         if let dict = notification.userInfo as NSDictionary? {
+             if let index = dict["index"] as? Int {
+                 self.searchResponse.remove(at: index)
+             }
+         }
+         self.tableView.reloadData()
+     }
+}
+
+
 
 

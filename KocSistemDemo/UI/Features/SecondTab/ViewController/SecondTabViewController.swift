@@ -22,6 +22,7 @@ class SecondTabViewController: BaseViewController {
         self.viewModel.owned = self
         collectionView.registerCell(type: ArtistCollectionViewCell.self)
         initUI()
+        addDeleteObserver()
     }
 
     override func registerEvents() {
@@ -35,5 +36,22 @@ class SecondTabViewController: BaseViewController {
         topProfileView.backgroundColor = backgroundColor
         topProfileView.titleLabel.text = "Demo Tab 2"
     }
+}
+
+extension SecondTabViewController {
+    func addDeleteObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier2.rawValue), object: nil)
+    }
+
+
+     // handle notification
+     @objc func observerCalled(_ notification: NSNotification) {
+         if let dict = notification.userInfo as NSDictionary? {
+             if let index = dict["index"] as? Int {
+                 self.searchResponse.remove(at: index)
+             }
+         }
+         self.collectionView.reloadData()
+     }
 }
 

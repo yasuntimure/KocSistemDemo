@@ -33,10 +33,9 @@ struct CharacterRange {
 }
 
 struct StaticKeys {
-    static let recipeIdentifier =  Notification.Name(rawValue: "recipeIdentifier")
-    static let dismissIdentifier =  Notification.Name(rawValue: "dismissIdentifier")
-    static let reloadRecipeLedgerIdentifier =  Notification.Name(rawValue: "reloadRecipeLedgerIdentifier")
-    static let loginIdentifier =  Notification.Name(rawValue: "loginIdentifier")
-    static let userContractIdentifier =  Notification.Name(rawValue: "userContractIdentifier")
-    static let keySocialName = "facebook"
+    static let deleteIdentifier1 =  Notification.Name(rawValue: "deleteIdentifier1")
+    static let deleteIdentifier2 =  Notification.Name(rawValue: "deleteIdentifier2")
+    static let deleteIdentifier3 =  Notification.Name(rawValue: "deleteIdentifier3")
+    static let deleteIdentifier4 =  Notification.Name(rawValue: "deleteIdentifier4")
+    static let deletedIndex = "deletedIndex"
 }

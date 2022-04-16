@@ -22,6 +22,7 @@ class ThirdTabViewController: BaseViewController {
         self.viewModel.owned = self
         collectionView.registerCell(type: ArtistProfileCollectionViewCell.self)
         initUI()
+        addDeleteObserver()
     }
 
     override func registerEvents() {
@@ -35,5 +36,22 @@ class ThirdTabViewController: BaseViewController {
         topProfileView.backgroundColor = backgroundColor
         topProfileView.titleLabel.text = "Demo Tab 3"
     }
+}
+
+extension ThirdTabViewController {
+    func addDeleteObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observerCalled(_:)), name: NSNotification.Name(rawValue: StaticKeys.deleteIdentifier3.rawValue), object: nil)
+    }
+
+
+     // handle notification
+     @objc func observerCalled(_ notification: NSNotification) {
+         if let dict = notification.userInfo as NSDictionary? {
+             if let index = dict["index"] as? Int {
+                 self.searchResponse.remove(at: index)
+             }
+         }
+         self.collectionView.reloadData()
+     }
 }
 

@@ -18,8 +18,8 @@ extension ThirdTabViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
         let data = searchResponse[indexPath.row]
         cell.data = data
-        cell.deleteButton.onTap { [weak self] _ in
-            self?.searchResponse.remove(at: indexPath.row)
+        cell.deleteButton.onTap { _ in
+            self.deleteItemFromAllResponses(index: indexPath.row)
         }
         return cell
     }
@@ -32,7 +32,7 @@ extension ThirdTabViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (Screen.width - 72)
-        let cellHeight: CGFloat = cellWidth*1.5
+        let cellHeight: CGFloat = cellWidth * 1.5
         return CGSize(width: cellWidth, height: cellHeight)
     }
 

@@ -9,6 +9,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    var updatedSearchResponse: SearchResponseModel = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialComponents()
@@ -27,5 +29,26 @@ class BaseViewController: UIViewController {
         self.presentViewController(navigationController)
     }
 
+    func deleteItemFromAllResponses(index: Int) {
+        DispatchQueue.main.async {
+            var info = [String: Int]()
+            info["index"] = index
+            NotificationCenter.default.post(name: StaticKeys.deleteIdentifier1, object: nil, userInfo: info)
+            NotificationCenter.default.post(name: StaticKeys.deleteIdentifier2, object: nil, userInfo: info)
+            NotificationCenter.default.post(name: StaticKeys.deleteIdentifier3, object: nil, userInfo: info)
+            NotificationCenter.default.post(name: StaticKeys.deleteIdentifier4, object: nil, userInfo: info)
+        }
+
+    }
+
+//    func getUpdatedSearchResponse(searchResponse: SearchResponseModel) -> SearchResponseModel {
+//        var updatedSearchResponse: SearchResponseModel = []
+//        for item in searchResponse {
+//            if !deletedIDs.contains(item.trackID ?? 0) {
+//                updatedSearchResponse.append(item)
+//            }
+//        }
+//        return updatedSearchResponse
+//    }
 }
 
