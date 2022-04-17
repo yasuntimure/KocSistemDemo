@@ -25,17 +25,21 @@ class ForthTabViewController: BaseViewController {
     var searchResponse: SearchResponseModel = [] {
         didSet {
             updateInfoLabel()
-            tableView.reloadData()
+            reloadTableView()
         }
     }
 
-    override func initialComponents() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         self.viewModel.owned = self
         self.viewModel.fetchData()
         subscribeSubject()
-        tableView.registerCell(type: ArtistTableViewCell.self)
+    }
+
+    override func initialComponents() {
         initUI()
-   
+        tableView.registerCell(type: ArtistTableViewCell.self)
+        updateInfoLabel()
     }
 
     private func initUI() {
@@ -62,11 +66,19 @@ class ForthTabViewController: BaseViewController {
         guard let index = searchResponse.firstIndex(where: {$0.trackID == trackID}) else {return}
         searchResponse.remove(at: index)
         updateInfoLabel()
-        tableView.reloadData()
+        reloadTableView()
     }
 
     private func updateInfoLabel() {
-        infoLabel.text = "\(searchResponse.count) results found. "
+        if let infoLabel = infoLabel {
+            infoLabel.text = "\(searchResponse.count) results found. "
+        }
+    }
+
+    private func reloadTableView() {
+        if let tableView = tableView {
+            tableView.reloadData()
+        }
     }
 
 }

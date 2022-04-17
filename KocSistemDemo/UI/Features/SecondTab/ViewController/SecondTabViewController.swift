@@ -25,16 +25,21 @@ class SecondTabViewController: BaseViewController {
     var searchResponse: SearchResponseModel = [] {
         didSet {
             updateInfoLabel()
-            collectionView.reloadData()
+            reloadCollectionView()
         }
     }
 
-    override func initialComponents() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         self.viewModel.owned = self
         self.viewModel.fetchData()
         subscribeSubject()
-        collectionView.registerCell(type: ArtistCollectionViewCell.self)
+    }
+
+    override func initialComponents() {
         initUI()
+        collectionView.registerCell(type: ArtistCollectionViewCell.self)
+        updateInfoLabel()
     }
 
     private func initUI() {
@@ -49,23 +54,31 @@ class SecondTabViewController: BaseViewController {
         subject
             .removedItemTrackID
             .asObservable()
-            .subscribe({ [unowned self] trackID  in
-                if let trackID = trackID.element {
-                    self.updateSearchResponse(with: trackID)
-                }
-            })
+            .subscribe({ [unowned self] trackID in
+            if let trackID = trackID.element {
+                self.updateSearchResponse(with: trackID)
+            }
+        })
             .disposed(by: disposeBag)
     }
 
     private func updateSearchResponse(with trackID: Int) {
-        guard let index = searchResponse.firstIndex(where: {$0.trackID == trackID}) else {return}
+        guard let index = searchResponse.firstIndex(where: { $0.trackID == trackID }) else { return }
         searchResponse.remove(at: index)
         updateInfoLabel()
-        collectionView.reloadData()
+        reloadCollectionView()
     }
 
     private func updateInfoLabel() {
-        infoLabel.text = "\(searchResponse.count) results found. "
+        if let infoLabel = infoLabel {
+            infoLabel.text = "\(searchResponse.count) results found. "
+        }
+    }
+
+    private func reloadCollectionView() {
+        if let collectionView = collectionView {
+            collectionView.reloadData()
+        }
     }
 
 }

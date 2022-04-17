@@ -25,16 +25,21 @@ class ThirdTabViewController: BaseViewController {
     var searchResponse: SearchResponseModel = [] {
         didSet {
             updateInfoLabel()
-            collectionView.reloadData()
+            reloadCollectionView()
         }
     }
 
-    override func initialComponents() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         self.viewModel.owned = self
         self.viewModel.fetchData()
         subscribeSubject()
-        collectionView.registerCell(type: ArtistProfileCollectionViewCell.self)
+    }
+
+    override func initialComponents() {
         initUI()
+        collectionView.registerCell(type: ArtistProfileCollectionViewCell.self)
+        updateInfoLabel()
     }
 
     private func initUI() {
@@ -61,11 +66,19 @@ class ThirdTabViewController: BaseViewController {
         guard let index = searchResponse.firstIndex(where: { $0.trackID == trackID }) else { return }
         searchResponse.remove(at: index)
         updateInfoLabel()
-        collectionView.reloadData()
+        reloadCollectionView()
     }
 
     private func updateInfoLabel() {
-        infoLabel.text = "\(searchResponse.count) results found. "
+        if let infoLabel = infoLabel {
+            infoLabel.text = "\(searchResponse.count) results found. "
+        }
+    }
+
+    private func reloadCollectionView() {
+        if let collectionView = collectionView {
+            collectionView.reloadData()
+        }
     }
 
 }
