@@ -89,7 +89,6 @@
 		D07E18CD2808A009003217A0 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E18B72808A009003217A0 /* Date+Extensions.swift */; };
 		D07E18CE2808A009003217A0 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E18B82808A009003217A0 /* Data+Extensions.swift */; };
 		D07E18CF2808A009003217A0 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07E18B92808A009003217A0 /* UICollectionView+Extensions.swift */; };
-		D0E20637280C3AC300231297 /* project.pbxproj in Sources */ = {isa = PBXBuildFile; fileRef = D0E20636280C3AC300231297 /* project.pbxproj */; };
 		D0E480362809540F00E81A1D /* BaseReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E480352809540F00E81A1D /* BaseReusableView.swift */; };
 		D0E48038280954CC00E81A1D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E48037280954CC00E81A1D /* ThemeManager.swift */; };
 		D0E4803E2809564F00E81A1D /* PrimaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E4803D2809564F00E81A1D /* PrimaryTitleLabel.swift */; };
@@ -901,7 +900,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E20637280C3AC300231297 /* project.pbxproj in Sources */,
 				D07E186328089833003217A0 /* NetworkConstants.swift in Sources */,
 				D07E186228089833003217A0 /* NetworkUtil.swift in Sources */,
 				D07E186928089833003217A0 /* SearchService.swift in Sources */,
