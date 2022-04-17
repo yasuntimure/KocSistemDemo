@@ -80,5 +80,4 @@ class FirstTabViewController: BaseViewController {
             tableView.reloadData()
         }
     }
-
 }
