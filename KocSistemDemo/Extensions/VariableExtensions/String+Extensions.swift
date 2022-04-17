@@ -53,33 +53,20 @@ extension String {
 
 
 extension String {
-    func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) {
-            return UIImage(data: data)
-        }
-        return nil
-    }
-}
-
-
-extension String {
-/// Returns a SPCScene.Image from a string. Use to generate an image, based on an emoji string.
-    func image() -> UIImage {
-        let size = CGSize(width: 80, height: 80)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        UIColor.clear.set()
-        let rect = CGRect(origin: .zero, size: size)
-        UIRectFill(CGRect(origin: .zero, size: size))
-        (self as AnyObject).draw(in: rect, withAttributes: [.font: UIFont.systemFont(ofSize: 70)])
-        if let image = UIGraphicsGetImageFromCurrentImageContext() {
-            UIGraphicsEndImageContext()
-            return image
-
+    func format() -> String {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"  // Note: S is fractional second
+        if let dateFromString = dateFormater.date(from: self) { // "Nov 25, 2015, 4:31 AM" as NSDate
+            let newFormater = DateFormatter()
+            newFormater.dateFormat = "dd.MM.yy   HH:mm"
+            let stringFromDate = newFormater.string(from: dateFromString)
+            return stringFromDate
         } else {
-            return UIImage()
+            return "----"
         }
     }
 }
+
 
 
 

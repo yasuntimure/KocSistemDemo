@@ -8,17 +8,19 @@
 import UIKit
 import SwipeCellKit
 
-class ArtistTableViewCell: UITableViewCell, Reuseable {
+class ArtistTableViewCell: SwipeTableViewCell, Reuseable {
 
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var trackLabel: UILabel!
     @IBOutlet weak var examineButton: PrimaryButton!
-    @IBOutlet weak var deleteButton: PrimaryButton!
 
     var data: Result? { didSet { updateUI() } }
 
     override func awakeFromNib() {
         self.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        cellView.backgroundColor = ThemeManager.currentTheme().backgroundColor.darker(by: 5)
+        cellView.layer.cornerRadius = 14
     }
 
     private func updateUI() {

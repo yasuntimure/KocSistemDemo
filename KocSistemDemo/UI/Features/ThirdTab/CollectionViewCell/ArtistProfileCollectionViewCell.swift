@@ -37,8 +37,8 @@ class ArtistProfileCollectionViewCell: UICollectionViewCell, Reuseable {
         }
         artistNameLabel.text = data?.artistName ?? "artistName"
         trackNameLabel.text = data?.trackName ?? "trackName"
-        releaseDateLabel.text = data?.releaseDate ?? "releaseDate"
-        trackPriceLabel.text = data?.releaseDate ?? "trackPrice"
+        releaseDateLabel.text = data?.releaseDate?.format() ?? "releaseDate"
+        trackPriceLabel.text = String(data?.trackPrice ?? 0) + "$"
     }
 
     private func roundBackground() {

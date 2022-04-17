@@ -19,9 +19,7 @@ extension SecondTabViewController: UICollectionViewDataSource {
         let data = searchResponse[indexPath.row]
         cell.data = data
         cell.deleteButton.onTap { [unowned self] _ in
-            if let trackID = data.trackID {
-                self.subject.removedItemTrackID.accept(trackID)
-            }
+            if let trackID = data.trackID { self.subject.removedItemTrackID.accept(trackID) }
         }
         cell.examineButton.onTap { [unowned self] _ in
             self.pushViewController(DetailViewController(data: data))
@@ -50,6 +48,6 @@ extension SecondTabViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        return UIEdgeInsets(top: 12, left: 24, bottom: 0, right: 24)
     }
 }

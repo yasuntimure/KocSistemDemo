@@ -30,7 +30,7 @@
                                     <size key="itemSize" width="150" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="24" minY="12" maxX="24" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
@@ -86,7 +86,7 @@
                                     <constraint firstAttribute="height" constant="70" id="VCb-9f-I1k"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-kd-sY3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-kd-sY3">
                                 <rect key="frame" x="0.0" y="141.5" width="414" height="671.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -116,7 +116,7 @@
                             <constraint firstItem="0Ev-kd-sY3" firstAttribute="trailing" secondItem="Iw9-WY-xvA" secondAttribute="trailing" id="zC2-8f-8JL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" badgeValue="4" systemItem="recents" id="1Jb-4z-lVa"/>
+                    <tabBarItem key="tabBarItem" badgeValue="4" systemItem="featured" id="1Jb-4z-lVa"/>
                     <connections>
                         <outlet property="infoLabel" destination="e7k-C3-tNJ" id="B5r-Bc-jaZ"/>
                         <outlet property="tableView" destination="0Ev-kd-sY3" id="eO7-hg-4ar"/>
@@ -179,7 +179,7 @@
                             <constraint firstItem="80z-GV-rYc" firstAttribute="leading" secondItem="6z7-Oi-4He" secondAttribute="leading" id="hek-RT-LtY"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" badgeValue="3" systemItem="topRated" id="0f9-Y3-NcD"/>
+                    <tabBarItem key="tabBarItem" badgeValue="3" systemItem="featured" id="0f9-Y3-NcD"/>
                     <connections>
                         <outlet property="collectionView" destination="80z-GV-rYc" id="e0g-W6-p5V"/>
                         <outlet property="infoLabel" destination="bJ4-VY-SEM" id="WVt-GH-pDf"/>
@@ -205,7 +205,7 @@
                                     <constraint firstAttribute="height" constant="70" id="3DD-Yf-Cbv"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-7Q-Hy9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-7Q-Hy9">
                                 <rect key="frame" x="0.0" y="141.5" width="414" height="671.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -235,7 +235,7 @@
                             <constraint firstItem="yDO-3k-FOv" firstAttribute="top" secondItem="hGf-dj-B9z" secondAttribute="top" constant="40" id="tfH-7X-Dhc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" badgeValue="1" springLoaded="YES" systemItem="favorites" id="DeY-0S-V9t">
+                    <tabBarItem key="tabBarItem" badgeValue="1" springLoaded="YES" systemItem="featured" id="DeY-0S-V9t">
                         <color key="badgeColor" systemColor="systemRedColor"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="FBm-gT-SB9"/>

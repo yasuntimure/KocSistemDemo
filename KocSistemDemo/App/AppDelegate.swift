@@ -33,21 +33,3 @@ extension AppDelegate {
     }
 
 }
-
-// MARK: Flow
-extension AppDelegate {
-
-//    func startSplashFlow() {
-//        let splashVC = SplashViewController.getInstanceFromNib()
-//        changeRootViewController(viewController: splashVC)
-//    }
-//
-//    func startLoginFlow() {
-//        let loginViewController = LoginViewController(viewModel: LoginViewModelFactory().makeViewModel())
-//        changeRootViewController(viewController: UINavigationController(rootViewController: loginViewController))
-//    }
-//
-//    func startMainFlow() {
-//        changeRootViewController(viewController: UINavigationController(rootViewController: HomeViewController()))
-//    }
-}

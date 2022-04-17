@@ -10,7 +10,7 @@ import UIKit
 class DetailViewController: BaseViewController {
 
     @IBOutlet weak var artistImage: UIImageView!
-    @IBOutlet weak var artistNameLabel: PrimaryTitleLabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var info1Label: UILabel!
     @IBOutlet weak var info2Label: UILabel!
     @IBOutlet weak var info3Label: UILabel!
@@ -40,9 +40,8 @@ class DetailViewController: BaseViewController {
 
         artistNameLabel.text = data.artistName ?? "Artist Name"
         info1Label.text = data.trackName ?? "info1Label"
-        info2Label.text = data.releaseDate ?? "info1Label"
-        info3Label.text = data.releaseDate ?? "info1Label"
+        info2Label.text = data.releaseDate?.format() ?? "releaseDate"
+        info3Label.text = String(data.trackPrice ?? 0) + "$"
     }
-
 
 }
